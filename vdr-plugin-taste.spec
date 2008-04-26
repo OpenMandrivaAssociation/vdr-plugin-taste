@@ -2,8 +2,8 @@
 %define plugin	taste
 %define name	vdr-plugin-%plugin
 %define version	0.0.2d
-%define snapshot 20070421
-%define rel	6
+%define snapshot 20080425
+%define rel	1
 
 Summary:	VDR plugin: Lock unwanted shows by keywords
 Name:		%name
@@ -12,9 +12,11 @@ Release:	%mkrel 1.%snapshot.%rel
 Group:		Video
 License:	GPL
 URL:		http://linux.kompiliert.net/index.php?view=taste
+Patch0:		91_taste-0.0.2d+cvs20061111-1.5.0.dpatch
+Patch1:		taste-i18n-1.6.patch
 Source:		vdr-%plugin-%snapshot.tar.bz2
 BuildRoot:	%{_tmppath}/%{name}-buildroot
-BuildRequires:	vdr-devel >= 1.4.1-6
+BuildRequires:	vdr-devel >= 1.6.0
 Requires:	vdr-abi = %vdr_abi
 
 %description
@@ -27,6 +29,9 @@ of time, or simply zap again.
 
 %prep
 %setup -q -n %plugin
+%patch0 -p1
+%patch1 -p1
+%vdr_plugin_prep
 
 %build
 %vdr_plugin_build
