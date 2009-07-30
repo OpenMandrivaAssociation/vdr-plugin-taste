@@ -3,7 +3,7 @@
 %define name	vdr-plugin-%plugin
 %define version	0.0.2d
 %define snapshot 20080425
-%define rel	4
+%define rel	5
 
 Summary:	VDR plugin: Lock unwanted shows by keywords
 Name:		%name
