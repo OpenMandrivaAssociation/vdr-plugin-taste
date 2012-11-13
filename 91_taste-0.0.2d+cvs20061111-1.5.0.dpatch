@@ -1,0 +1,22 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 91_taste-0.0.2d+cvs20061111-1.5.0.dpatch by Thomas Günther <tom@toms-cafe.de>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Changes for VDR >= 1.5.0 (applicable to VDR >= 1.4.5).
+
+@DPATCH@
+diff -urNad vdr-plugin-taste-0.0.2d+cvs20080102~/control.c vdr-plugin-taste-0.0.2d+cvs20080102/control.c
+--- vdr-plugin-taste-0.0.2d+cvs20080102~/control.c	2007-06-18 19:58:52.000000000 +0200
++++ vdr-plugin-taste-0.0.2d+cvs20080102/control.c	2008-01-02 19:00:19.000000000 +0100
+@@ -22,7 +22,11 @@
+ 		mSwitch(true),
+ 		mOsd(NULL)
+ {
++#if APIVERSNUM >= 10500
++	SetNeedsFastResponse(true);
++#else
+ 	needsFastResponse = true;
++#endif
+ 	cRemote::Put(kOk, true); // Hide OSD
+ }
+ 
