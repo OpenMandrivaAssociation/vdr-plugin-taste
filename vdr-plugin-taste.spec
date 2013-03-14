@@ -3,7 +3,7 @@
 %define name	vdr-plugin-%plugin
 %define version	0.0.2d
 %define snapshot 20080425
-%define rel	5
+%define rel	6
 
 Summary:	VDR plugin: Lock unwanted shows by keywords
 Name:		%name
@@ -15,7 +15,6 @@ URL:		http://linux.kompiliert.net/index.php?view=taste
 Patch0:		91_taste-0.0.2d+cvs20061111-1.5.0.dpatch
 Patch1:		taste-i18n-1.6.patch
 Source:		vdr-%plugin-%snapshot.tar.bz2
-BuildRoot:	%{_tmppath}/%{name}-buildroot
 BuildRequires:	vdr-devel >= 1.6.0
 Requires:	vdr-abi = %vdr_abi
 
@@ -37,17 +36,7 @@ of time, or simply zap again.
 %vdr_plugin_build
 
 %install
-rm -rf %{buildroot}
 %vdr_plugin_install
-
-%clean
-rm -rf %{buildroot}
-
-%post
-%vdr_plugin_post %plugin
-
-%postun
-%vdr_plugin_postun %plugin
 
 %files -f %plugin.vdr
 %defattr(-,root,root)
