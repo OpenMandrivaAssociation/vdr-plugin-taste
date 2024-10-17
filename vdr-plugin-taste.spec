@@ -7,7 +7,7 @@ Version:	0.0.2d
 Release:	1.%snapshot.7
 Group:		Video
 License:	GPL
-URL:		http://linux.kompiliert.net/index.php?view=taste
+URL:		https://linux.kompiliert.net/index.php?view=taste
 Patch0:		91_taste-0.0.2d+cvs20061111-1.5.0.dpatch
 Patch1:		taste-i18n-1.6.patch
 Source:		vdr-%plugin-%snapshot.tar.bz2
